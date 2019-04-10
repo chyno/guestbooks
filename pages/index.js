@@ -31,18 +31,16 @@ const mainSchema = new Schema({
 
 
 class MainForm extends React.Component {
-    constructor(props) {
-     
+    constructor(props) { 
       super(props);
-      this.state = {name : '', message: ''};
-    
+      this.state = {name : '', message: '', result: ''};   
       this.submitForm = this.submitForm.bind(this);
     }
   
+    // Promise for posts
      postResult$ = null;  
-
      submitForm (data) {
-      console.log('submitting form .....');
+     console.log('submitting form .....');
      this.postResult$ =   fetch('/api/guestbook', {
         method: 'post',
         headers: {
@@ -54,33 +52,24 @@ class MainForm extends React.Component {
 
       this.postResult$.then((res) => {
         console.log('after post....');
-        //res.status === 200 ? this.setState({ submitted: true }) : ''
+        res.status === 200 ? this.setState( {name : '', message: '', result: 'Success!'}) : '';
       })
     }
 
-    // handleNameChange(event) {
-    //   this.setState(Object.assign({}, this.state, { name : event.target.value}));
-    // }
 
-    // handleMessageChange(event) {
-    //     this.setState(Object.assign({}, this.state, { message : event.target.value}));
-    //   }
-  
-    // handleSubmit(event) {
-    //   alert('A name was submitted: ' + JSON.stringify(this.state));
-    //   event.preventDefault();
-    // }
-  
     render() {
       return (
         <Form
         schema={mainSchema}
         onSubmit={this.submitForm}
-        onError={(errors, data) => alert('error', errors, data)}
+        onError={(errors, data) => {
+          Object.assign({}, this.state, { result : ''})
+        }}
       >
-        <TextField name="name" label="Name" type="text" />
-        <TextField name="message" label="Message" type="text" />
+        <TextField name="name" label="Name" type="text" value={this.state.name} />
+        <TextField name="message" label="Message" type="text" value={this.state.message} />
         <SubmitField value="Submit" />
+        <p>{this.state.result}</p>
       </Form>
 
       );
