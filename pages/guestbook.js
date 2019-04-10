@@ -11,7 +11,7 @@ class Guestbook extends React.Component {
   }
   static async getInitialProps({ req }) {
     //const data =  [{name : 'John Smith', message: 'Hi'}];
-    let res = await fetch('/api/guestbooks')
+    let res = await fetch( process.env.BACKEND_URL + '/api/guestbooks')
     const data = await res.json()
     return { data }
   }
@@ -36,7 +36,7 @@ class Guestbook extends React.Component {
       {tableData}
       </tbody>
       </table>
-      <Link href="/"><a>Back TO Main</a></Link>
+      <Link href={process.env.BACKEND_URL + '/'}><a>Back TO Main</a></Link>
       </div>
     );
   }

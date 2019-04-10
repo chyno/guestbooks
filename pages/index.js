@@ -11,7 +11,7 @@ import Schema from 'form-schema-validation';
 const Index = () => (
   <div>
     <MainForm/>
-    <Link href="/guestbook"><a>Current Guestbooks</a></Link>
+    <Link href= {process.env.BACKEND_URL + "/guestbook"} ><a>Current Guestbooks</a></Link>
 </div>
 
 )
