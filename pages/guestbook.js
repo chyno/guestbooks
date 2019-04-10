@@ -3,7 +3,7 @@ import React from 'react'
 
 class Guestbook extends React.Component {
   static async getInitialProps({ req }) {
-    const userAgent = req ? req.headers['user-agent'] : navigator.userAgent
+    const userAgent = 'foo'; // req ? req.headers['user-agent'] : navigator.userAgent
     return { userAgent }
   }
 
