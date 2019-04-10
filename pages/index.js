@@ -37,6 +37,9 @@ class MainForm extends React.Component {
     render() {
       return (
         <form onSubmit={this.handleSubmit}>
+         <div>
+
+         <h2>Information</h2>
           <label>
             name:
             <input type="text" value={this.state.name} onChange={this.handleNameChange} />
@@ -46,6 +49,9 @@ class MainForm extends React.Component {
             <input type="text" value={this.state.message} onChange={this.handleMessageChange} />
           </label>
           <input type="submit" value="Submit" /> 
+          </div>
+          <Link href="/guestbook"><a>Current Guestbooks</a></Link>
+
         </form>
       );
     }
