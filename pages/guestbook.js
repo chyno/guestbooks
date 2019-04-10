@@ -9,10 +9,17 @@ class Guestbook extends React.Component {
 
   render() {
     return (
-    <div>
-        <div>Hello World {this.props.userAgent}</div>
-        <div><Link href="/"><a>Back to Main</a></Link></div>
-        </div>);
+      <table className="table">
+      <thead>
+        <tr>
+            <th style={{height: '50px'}}>Name</th>
+            <th style={{height: '50px'}}>Message</th>
+           
+        </tr>
+      </thead>
+
+      <tbody></tbody>
+    );
   }
 }
 
