@@ -11,7 +11,7 @@ app.prepare().then(() => {
   const server = express();
 
   server.use(bodyParser.json());
-
+  //  server.use(bodyParser.urlencoded({ extended: false }))
   server.get('/api/guestbooks', (req, res) => {
     console.log('welcome to the api!!')
     res.json(guestbooks);
