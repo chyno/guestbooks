@@ -13,7 +13,8 @@ app.prepare().then(() => {
   server.use(bodyParser.json());
 
   server.get('/api/guestbooks', (req, res) => {
-    res.json(this.guestbooks);
+    console.log('welcome to the api!!')
+    res.json(guestbooks);
   })
 
   server.get('*', (req, res) => {
@@ -22,7 +23,7 @@ app.prepare().then(() => {
 
   server.post('/api/guestbook', (req, res) => {
      console.log(req.body);
-    this.guestbooks.push(req.body);
+    guestbooks.push(req.body);
     res.send('success');
   });
 
