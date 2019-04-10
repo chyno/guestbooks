@@ -2,14 +2,28 @@ import Link from 'next/link'
 import React from 'react'
 
 class Guestbook extends React.Component {
+
+  constructor(props) { 
+    super(props);
+   // this.state = [{name : 'John Smith', message: 'Hi'}];   
+   
+  }
   static async getInitialProps({ req }) {
-    const userAgent = 'foo'; // req ? req.headers['user-agent'] : navigator.userAgent
-    return { userAgent }
+    //const data =  [{name : 'John Smith', message: 'Hi'}];
+    let res = await fetch('/api/guestbooks')
+    const data = await res.json()
+    return { data }
   }
 
+  
   render() {
+    let tableData = this.props.data.map(function(obj) {
+      return <tr><td>{obj.name}</td>
+      <td>{obj.message}</td></tr>
+     });
     return (
-      <table className="table">
+      <div>
+      <table>
       <thead>
         <tr>
             <th style={{height: '50px'}}>Name</th>
@@ -17,8 +31,12 @@ class Guestbook extends React.Component {
            
         </tr>
       </thead>
-
-      <tbody></tbody>
+      <tbody>
+      {tableData}
+      </tbody>
+      </table>
+      <Link href="/"><a>Back TO Main</a></Link>
+      </div>
     );
   }
 }

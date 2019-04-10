@@ -1,7 +1,7 @@
 
 // This is the Link API
-import Link from 'next/link'
-//import {Message} from './components';
+import Link from 'next/link';
+
 import {
   Form,
   TextField, SubmitField 
