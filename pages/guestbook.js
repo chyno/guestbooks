@@ -11,8 +11,9 @@ class Guestbook extends React.Component {
   }
   static async getInitialProps({ req }) {
     //const data =  [{name : 'John Smith', message: 'Hi'}];
-    let res = await fetch( process.env.BACKEND_URL + '/api/guestbooks')
-    const data = await res.json()
+    //let res = await fetch( process.env.BACKEND_URL + '/api/guestbooks')
+    //const data = await res.json()
+    const data = [{name : 'John Smith', message: 'Hi'}];
     return { data }
   }
 
