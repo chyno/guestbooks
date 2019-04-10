@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import "isomorphic-fetch";
 
 class Guestbook extends React.Component {
 

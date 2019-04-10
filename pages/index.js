@@ -1,7 +1,7 @@
 
 // This is the Link API
 import Link from 'next/link';
-
+import "isomorphic-fetch";
 import {
   Form,
   TextField, SubmitField 
