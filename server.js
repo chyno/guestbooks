@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
-const guestbooks = [{foo:'bar'}];
+const guestbooks = [];
 
 app.prepare().then(() => {
   const server = express();
@@ -13,7 +13,7 @@ app.prepare().then(() => {
   server.use(bodyParser.json());
 
   server.get('/api/guestbooks', (req, res) => {
-    return app.render(req, this.guestbooks, '/api/guestbooks', req.query);
+    res.json(this.guestbooks);
   })
 
   server.get('*', (req, res) => {
