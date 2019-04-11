@@ -52,7 +52,7 @@ class MainForm extends React.Component {
 
       this.postResult$.then((res) => {
         console.log('after post....');
-        res.status === 200 ? this.setState( {name : '', message: '', result: 'Success!'}) : '';
+        res.status === 200 ? this.setState( {name : '', message: '', result: 'Success!'}) : his.setState( {name : '', message: '', result: 'Error'});
       })
     }
 
